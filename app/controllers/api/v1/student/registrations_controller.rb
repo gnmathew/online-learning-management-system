@@ -8,9 +8,9 @@ module Api
           user.role = :student
 
           if user.save
-            token = jwt_encode(user_id: user.id)
-            
-            render json: { token: token, user_id: user.id }, status: :created
+            token = jwt_encode(user: user)
+
+            render json: { token: token, user: user }, status: :created
           else
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
           end

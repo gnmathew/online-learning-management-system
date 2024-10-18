@@ -1,9 +1,15 @@
 import React from "react";
+import LogoutButton from "./LogoutButton"
 
-export default () => (
-  <div>
-    <h1>
-      Hello World
-    </h1>
-  </div>
-);
+function Home(){
+  return(
+    <div>
+      <LogoutButton/>
+      <h1>
+        Welcomee to Koda Board Dashboard
+      </h1>
+    </div>
+  )
+}
+
+export default Home;
