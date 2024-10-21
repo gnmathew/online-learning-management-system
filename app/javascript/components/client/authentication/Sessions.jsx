@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function Login() {
+const Sessions = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('student');
@@ -22,7 +22,7 @@ function Login() {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('role', response.data.user.role)
       navigate('/koda-board/home');
-      
+
       console.log('Login Successfully');
     } catch (error) {
       console.error('Login failed', error);
@@ -78,4 +78,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Sessions;

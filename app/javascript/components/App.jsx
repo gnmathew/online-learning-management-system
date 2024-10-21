@@ -1,28 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
-import ProtectedRoute from "./ProtectedRoute";
-import Home from "./Home";
-import Login from "./Login";
-import Register from "./Register";
+import { Routes, Route } from "react-router-dom";
+import ClientApp from "./client/ClientApp";
 
 const App = () => {
-    return (
-        <Routes>
-          <Route path="/koda-board/login" element={<Login />} />
-          <Route path="/koda-board/student/register" element={<Register />} />
-
-          <Route
-            path="/koda-board/home"
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route path="*" element={<Navigate to="/koda-board/login" />} />
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path="/*" element={<ClientApp />} />
+    </Routes>
+  );
 };
 
 export default App;

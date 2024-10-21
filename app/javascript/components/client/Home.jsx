@@ -1,12 +1,12 @@
 import React from "react";
-import LogoutButton from "./LogoutButton"
+import LogoutButton from "./authentication/LogoutButton"
 
-function Home(){
+const Home = () => {
   return(
     <div>
       <LogoutButton/>
       <h1>
-        Welcomee to Koda Board Dashboard
+        Welcome to Koda Board Dashboard
       </h1>
     </div>
   )
