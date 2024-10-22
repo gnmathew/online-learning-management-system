@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,6 +9,13 @@ const Sessions = () => {
   const [role, setRole] = useState('student');
   const [error, setError] = useState('');
   const navigate = useNavigate()
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (token) {
+      navigate('/');
+    }
+  }, [token, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,7 +29,7 @@ const Sessions = () => {
 
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('role', response.data.user.role)
-      navigate('/koda-board/home');
+      navigate('/');
 
       console.log('Login Successfully');
     } catch (error) {
