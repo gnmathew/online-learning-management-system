@@ -5,14 +5,14 @@ import Sessions from "../authentication/Sessions";
 import Registrations from "../authentication/Registrations";
 import ProtectedRoute from "../authentication/ProtectedRoute";
 
-const ClientRoutes = () => {
+const ClientRoutes = ({setIsLoggedIn}) => {
     return (
       <Routes>
-        <Route path="/koda-board/login" element={<Sessions />} />
-        <Route path="/koda-board/student/register" element={<Registrations />} />
+        <Route path="/koda-board/login" element={<Sessions setIsLoggedIn={setIsLoggedIn}/>} />
+        <Route path="/koda-board/student/register" element={<Registrations setIsLoggedIn={setIsLoggedIn}/>} />
 
         <Route
-          path="/koda-board/home"
+          path="/"
           element={
             <ProtectedRoute>
               <Home />
@@ -20,7 +20,7 @@ const ClientRoutes = () => {
           }
         />
 
-        <Route path="*" element={<Navigate to="/koda-board/login" />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     );
 };

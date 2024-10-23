@@ -10,7 +10,7 @@ const ProtectedRoute = ({ children }) => {
       navigate("/koda-board/login");
     }
   }, [token, navigate]);
-  
+
   return token ? children : null;
 };
 

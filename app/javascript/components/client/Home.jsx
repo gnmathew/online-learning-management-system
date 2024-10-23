@@ -1,13 +1,12 @@
 import React from "react";
-import LogoutButton from "./authentication/LogoutButton"
+import MainMenu from "./MainMenu"
 
 const Home = () => {
   return(
     <div>
-      <LogoutButton/>
-      <h1>
-        Welcome to Koda Board Dashboard
-      </h1>
+      <div>
+        <MainMenu />
+      </div>
     </div>
   )
 }

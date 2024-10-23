@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Registrations = () => {
+const Registrations = ({setIsLoggedIn}) => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -21,11 +21,10 @@ const Registrations = () => {
       });
 
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem('role', response.data.user.role)
+      setIsLoggedIn(true);
+      navigate('/');
 
       console.log('Registered Successfully');
-
-      navigate('/koda-board/student/home');
     } catch (error) {
       setError('Invalid email or password');
     }

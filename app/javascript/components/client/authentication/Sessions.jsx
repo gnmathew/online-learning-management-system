@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Sessions = () => {
+const Sessions = ({setIsLoggedIn}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('student');
@@ -28,7 +28,8 @@ const Sessions = () => {
       });
 
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem('role', response.data.user.role)
+      localStorage.setItem('role', response.data.user.role);
+      setIsLoggedIn(true);
       navigate('/');
 
       console.log('Login Successfully');
